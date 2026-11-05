@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rohit Kumawat Portfolio</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Pixelify+Sans:wght@500;700&family=Caveat:wght@500;700&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5f4ee;--rule:#e1e0d6;--ink:#121212;--mute:#5d5d58;--yel:#f6c744;--pink:#ef4f9a;--blue:#2a4bd7;--green:#20a86b;--mint:#a9dfc3;--rose:#f4b8cf;--sand:#e8d9a8;--sky:#b7c8f2;--red:#e5484d;
+--px:'Pixelify Sans','Courier New',monospace;--hand:'Caveat','Comic Sans MS',cursive;--mono:'JetBrains Mono',monospace;--sans:'Inter',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper) repeating-linear-gradient(to bottom,transparent 0 31px,var(--rule) 31px 32px);min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+ 
+/* top bar */
+header{position:sticky;top:0;z-index:20;background:#fffffa;border-bottom:1px solid var(--ink);display:flex;align-items:center;gap:8px;padding:0 14px;height:42px}
+.logo{width:14px;height:14px;border-radius:50%;background:var(--pink);border:1.5px solid var(--ink);margin-right:6px}
+.tabs{display:flex;height:100%}
+.tabs button{font:700 11px var(--mono);letter-spacing:.04em;text-transform:uppercase;background:none;border:0;padding:0 16px;display:flex;align-items:center;gap:7px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--yel)}
+.right{margin-left:auto;display:flex;align-items:center;gap:6px}
+.dot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ink)}
+.cbtn{cursor:pointer;color:var(--ink);font:700 10.5px var(--mono);text-transform:uppercase;border:1.5px solid var(--ink);padding:5px 10px;margin-left:6px;background:#fff;display:flex;gap:6px;align-items:center}
+ 
+main{max-width:1000px;margin:0 auto;padding:56px 24px 90px}
+.page{display:none}.page.on{display:block}
+ 
+/* shared bits */
+.hand{font-family:var(--hand);font-size:22px;font-weight:500}
+.mono{font:700 11px var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.big{font:700 clamp(54px,10vw,104px)/.95 var(--px);letter-spacing:-.01em}
+.tape{position:absolute;width:74px;height:22px;background:rgba(246,199,68,.6);top:-11px;left:50%;margin-left:-37px;transform:rotate(-4deg);clip-path:polygon(0 0,100% 0,97% 25%,100% 50%,97% 75%,100% 100%,0 100%,3% 75%,0 50%,3% 25%)}
+.tape.b{background:rgba(42,75,215,.35)}.tape.p{background:rgba(239,79,154,.4)}
+.tag{display:inline-block;font:500 20px var(--hand);padding:2px 14px;transform:rotate(var(--r,-3deg));clip-path:polygon(0 0,100% 0,98% 30%,100% 60%,98% 100%,0 100%,2% 60%,0 30%)}
+.pill{display:inline-flex;align-items:center;gap:8px;font:700 12.5px var(--sans);color:#fff;padding:6px 6px 6px 14px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.pill i{width:22px;height:22px;background:rgba(255,255,255,.9);display:inline-block}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:11px 16px;background:var(--ink);color:#fff;border:2px solid var(--ink);cursor:pointer}
+.btn.alt{background:#fff;color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--blue)}
+ 
+/* home */
+.home{text-align:center;min-height:max(460px,calc(100vh - 188px));display:flex;align-items:center;justify-content:center}
+.stage{position:relative;width:100%;max-width:920px;padding:56px 0 10px}
+.sel{position:relative;display:inline-block;padding:10px 26px 4px;border:1.5px solid var(--red);margin:10px 0 18px;
+background:linear-gradient(#fff,#fff) 0 0/8px 8px no-repeat,linear-gradient(#fff,#fff) 100% 0/8px 8px no-repeat,linear-gradient(#fff,#fff) 0 100%/8px 8px no-repeat,linear-gradient(#fff,#fff) 100% 100%/8px 8px no-repeat}
+.sel .big{font:700 clamp(64px,13vw,150px)/1.05 'Poppins',sans-serif;letter-spacing:-.03em;padding:6px 0}
+.stk{position:absolute}
+.s1{top:0;left:8%;font-size:24px}.s2{top:14px;right:8%;font-size:24px}
+.sel .s3{left:-90px;bottom:-14px;font-size:24px}.sel .s4{right:-110px;bottom:-14px;font-size:24px}
+.tag.red{background:var(--red);color:#fff}
+.sel .av{width:76px;height:76px}.sel .a1{left:-170px;top:6px;background:var(--rose);animation:float 4.2s ease-in-out infinite}.sel .a2{right:-178px;top:-14px;background:var(--sky);animation:float 5s ease-in-out -2s infinite}
+.av{position:absolute;width:44px;height:44px;border-radius:50%;border:3px solid var(--yel);background:var(--rose);overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.av img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+.tagline{font:600 clamp(15px,3.6vw,40px)/1.2 var(--sans);letter-spacing:-.03em;white-space:nowrap;margin:34px auto 34px;min-height:1.2em}
+.tagline .caret{display:inline-block;width:.08em;height:1em;background:var(--ink);margin-left:.08em;vertical-align:-.12em;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.home .btn{font-size:12.5px;padding:14px 22px}
+ 
+/* polaroid */
+.pol{background:#fff;padding:10px 10px 30px;border:1px solid #d4d3c8;box-shadow:0 8px 20px rgba(0,0,0,.14);position:relative;transform:rotate(var(--r,-4deg));width:200px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
+.pol:hover{transform:rotate(-2deg) scale(1.08) translateY(-6px);box-shadow:0 18px 34px rgba(0,0,0,.25)}
+.pol:hover img{transform:scale(1.05)}
+.pol img{transition:transform .4s}
+.pol .ph{aspect-ratio:1/1.05;background:var(--sky);display:grid;place-items:center;font:700 80px var(--px);color:var(--blue);overflow:hidden}
+.pol img{width:100%;height:100%;object-fit:cover}
+.pol span{position:absolute;bottom:7px;left:0;right:0;text-align:center;font:500 17px var(--hand)}
+ 
+/* about */
+.about{display:grid;grid-template-columns:1fr 260px;gap:40px;align-items:start;margin-top:20px}
+.lab{display:inline-block;background:var(--yel);padding:3px 8px;margin-bottom:16px}
+.about p{font-family:var(--hand);font-weight:500}
+.about .hand{font-size:23px;line-height:1.25;margin-bottom:16px;max-width:560px;padding-left:14px;border-left:4px solid var(--yel)}
+.about p.s{font-size:19px;line-height:1.3;color:var(--mute);margin-bottom:10px;max-width:560px}
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.stats{display:flex;flex-wrap:wrap;gap:14px}
+.note{padding:14px 16px;min-width:150px;transform:rotate(var(--r,0deg));transition:transform .25s cubic-bezier(.34,1.56,.64,1);cursor:default;clip-path:polygon(0 3%,3% 0,97% 2%,100% 0,100% 97%,97% 100%,3% 98%,0 100%)}
+.note:hover{transform:rotate(0) translateY(-8px) scale(1.08)}
+.note b{display:block;font:700 22px var(--px)}
+.note span{font:500 10px var(--mono);text-transform:uppercase;letter-spacing:.04em}
+ 
+/* projects */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin:36px 0 40px}
+.card{position:relative;padding:18px;border:1px solid var(--ink);transform:rotate(var(--r,0deg));transition:transform .2s}
+.card:hover{transform:rotate(0) translateY(-4px)}
+.card .shot{aspect-ratio:16/10;margin:12px 0 14px;display:flex;align-items:flex-end;padding:14px;font:700 34px/1 var(--px);border:2px solid var(--ink);position:relative;overflow:hidden}
+.card .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card h3{font:600 22px var(--sans);letter-spacing:-.02em}
+.card p{font-size:13px;color:var(--mute);margin:6px 0 12px}
+.card.dk{background:#161616;color:#fff}.card.dk p{color:#b9b9b4}.card.dk .btn.alt{background:none;color:#fff;border-color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.chips span{font:700 10px var(--mono);text-transform:uppercase;background:var(--sand);color:var(--ink);padding:3px 8px}
+.links{display:flex;gap:8px;flex-wrap:wrap}
+.links .btn{padding:8px 12px;font-size:10.5px}
+.more{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px}
+@media(min-width:1000px){.more{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.more .sticky{padding:18px 14px}.more .sticky h3{font-size:23px}.more .links .btn{padding:8px 10px}}
+.sticky{padding:20px 18px;transform:rotate(var(--r,0deg));clip-path:polygon(0 2%,2% 0,98% 1%,100% 0,100% 98%,98% 100%,2% 99%,0 100%);min-height:210px;display:flex;flex-direction:column;gap:8px}
+.sticky h3{font:700 26px var(--px)}
+.sticky p{font-size:13px;flex:1}
+.sticky .links .btn{background:var(--ink)}
+.sticky .links .btn.alt{background:rgba(255,255,255,.7);color:var(--ink)}
+.sticky:hover{transform:rotate(0)}
+ 
+dialog{border:0;background:none;margin:auto;overflow:visible}
+dialog::backdrop{background:rgba(18,18,18,.45)}
+.cn{position:relative;background:var(--sand);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:30px 28px 24px;width:min(380px,88vw);display:flex;flex-direction:column;gap:12px}
+.cn h2{font:700 34px var(--px)}
+.cn .row{display:flex;flex-direction:column;gap:2px;background:#fff;border:1.5px solid var(--ink);padding:10px 14px;font-weight:600;font-size:15px;word-break:break-all}
+.cn .row:hover{background:var(--yel)}
+.cn .btn{align-self:flex-start}
+@media(max-width:820px){
+  .about,.feat{grid-template-columns:1fr}
+  .pol{margin:0 auto}.stk,.av{display:none}
+  .tabs button{padding:0 10px}.tabs button svg{display:none}
+  .cbtn,.dot:nth-child(n+3){display:none}
+}
+@media(prefers-reduced-motion:reduce){.card,.btn,.note,.pol,.pol img{transition:none}.av{animation:none!important}.tagline .caret{animation:none}}
+</style>
+</head>
+<body>
+ 
+<header>
+  <div class="logo"></div>
+  <div class="tabs">
+    <button class="on" data-go="home"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.3 7.5L12 17l-6.3 4.5L8 14 2 9.500h7.500z"/></svg>Home</button>
+    <button data-go="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg>About</button>
+    <button data-go="projects"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Projects</button>
+  </div>
+  <div class="right">
+    <span class="dot" style="background:var(--yel)"></span><span class="dot" style="background:var(--pink)"></span><span class="dot" style="background:var(--blue)"></span><span class="dot" style="background:var(--green)"></span>
+    <button class="cbtn" data-contact><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16"/><path d="M22 7l-10 7L2 7"/></svg>Contact</button>
+  </div>
+</header>
+ 
+<main>
+<!-- HOME -->
+<section class="page on" id="home">
+  <div class="home"><div class="stage">
+    <span class="tag stk s1" style="background:var(--mint);--r:-4deg">make things</span>
+    <span class="tag stk s2" style="background:var(--mint);--r:3deg">love the details</span>
+    <div class="hand">my name is</div>
+    <div class="sel"><h1 class="big">ROHIT</h1>
+      <span class="tag stk s3" style="background:var(--yel);--r:-3deg">Web Developer</span>
+      <span class="tag stk s4 red" style="--r:3deg">Graphic Designer</span>
+      <div class="av a1"><img src="r.jpg" alt="R"></div><div class="av a2"><img src="k.jpg" alt="K"></div>
+    </div>
+    <p class="tagline" aria-label="I build web apps that feel good to use"><span id="type"></span><span class="caret" aria-hidden="true"></span></p>
+    <button class="btn" data-contact>Contact me</button>
+    <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a class="btn alt" href="Rohit_Kumawat_Dev_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn alt" href="https://github.com/rohitkumawat-dev" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn alt" href="https://www.linkedin.com/in/rohitkumawat1404" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div></div>
+</section>
+ 
+<!-- ABOUT -->
+<section class="page" id="about">
+  <div class="hand">about me</div>
+  <h1 class="big" style="margin:6px 0 30px">ABOUT</h1>
+  <div class="about">
+    <div>
+      <span class="lab mono">Main bio</span>
+      <p class="hand">Hi! I'm a third-year EXTC student who got pulled into web development by building things, and I care a lot about how they look.</p>
+      <p class="s">I spent a year as a graphic designer in GDG on Campus, so I think about spacing, type and colour before I write a line of code.</p>
+      <p class="s">I develop responsive, user-focused web applications with clean, maintainable code, and I enjoy turning design ideas into polished, working products. At Smart India Hackathon 2026 I built multiple prototypes and helped take our team from the internal round to the final submission.</p>
+      <p class="s">Right now I'm looking for an internship where I can ship real features and learn from a team.</p>
+      <div class="pills">
+        <span class="pill" style="background:var(--yel);color:var(--ink)">HTML &amp; CSS<i></i></span>
+        <span class="pill" style="background:var(--green)">JavaScript<i></i></span>
+        <span class="pill" style="background:var(--pink)">Python<i></i></span>
+        <span class="pill" style="background:var(--blue)">PostgreSQL<i></i></span>
+        <span class="pill" style="background:#149eca">React<i></i></span>
+        <span class="pill" style="background:var(--ink)">UI Design<i></i></span>
+      </div>
+      <div class="stats">
+        <div class="note" style="background:var(--sky);--r:-2deg"><b>3rd year</b><span>BTech EXTC</span></div>
+        <div class="note" style="background:var(--sand);--r:2deg"><b>SIH 2026</b><span>3 prototypes</span></div>
+        <div class="note" style="background:var(--rose);--r:-1deg"><b>1 year</b><span>GDG on Campus</span></div>
+      </div>
+    </div>
+    <div class="pol" style="--r:3deg"><i class="tape"></i><div class="ph"><img src="r.jpg" alt="Rohit Kumawat"></div><span>me, building stuff</span></div>
+  </div>
+</section>
+ 
+<!-- PROJECTS -->
+<section class="page" id="projects">
+  <div class="hand">explore my work</div>
+  <h1 class="big" style="margin:6px 0 0">FEATURED WORKS</h1>
+  <div class="feat">
+    <article class="card" style="background:var(--sand);--r:-1.5deg"><i class="tape"></i>
+      <span class="mono">● Live · Java + PostgreSQL</span>
+      <div class="shot" style="background:var(--yel);justify-content:center;align-items:center;padding:0"><img src="typebaazi-logo.png" alt="TypeBaazi logo" style="object-fit:contain;padding:12px"></div>
+      <h3>TypeBaazi</h3>
+      <p>Multiplayer type-racing game. Race other players in real time and watch everyone's progress live.</p>
+      <div class="links"><a class="btn" href="https://typebaazi.onrender.com/" target="_blank" rel="noopener">Live demo</a><a class="btn alt" href="https://github.com/rohitkumawat-dev/TypeBaazi1" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+    <article class="card dk" style="--r:1.5deg"><i class="tape b"></i>
+      <span class="mono">● Live · HTML + CSS</span>
+      <div class="shot" style="background:var(--green);color:var(--ink);justify-content:center;align-items:center;padding:0"><img src="heisenberg.png" alt="Heisenbros pixel art" style="object-fit:contain;padding:12px"></div>
+      <h3>Heisenbros</h3>
+      <p>A Breaking Bad themed website with a bold visual identity.</p>
+      <div class="links"><a class="btn" style="background:var(--yel);color:var(--ink);border-color:var(--yel)" href="https://heisenbros-1.vercel.app/" target="_blank" rel="noopener">Live demo</a><a class="btn alt" href="https://github.com/rohitkumawat-dev/heisenbros" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+  </div>
+ 
+  <div class="hand" style="margin-bottom:16px">more from the notebook</div>
+  <div class="more">
+    <article class="sticky" style="background:var(--mint);--r:-2deg"><h3>Manakya</h3><p>SIH 2026. Finds the right Indian Standard by combining keyword and semantic search.</p>
+      <div class="links"><a class="btn" href="https://github.com/rohitkumawat-dev/Manakya" target="_blank" rel="noopener">GitHub</a><a class="btn alt" href="https://www.youtube.com/watch?v=GqkvJn9zCA0" target="_blank" rel="noopener">Demo video</a></div></article>
+    <article class="sticky" style="background:var(--rose);--r:1.5deg"><h3>TraceX</h3><p>Scans product labels and checks them against the Legal Metrology Packaged Commodities Rules 2011.</p>
+      <div class="links"><a class="btn" href="#">GitHub</a><a class="btn alt" href="https://youtu.be/CY4gX-uCLV8" target="_blank" rel="noopener">Demo video</a></div></article>
+    <article class="sticky" style="background:var(--sky);--r:-1deg"><h3>Prayas</h3><p>A learning platform submitted to Smart India Hackathon as a working prototype.</p>
+      <div class="links"><a class="btn" href="https://github.com/rohitkumawat-dev/Prayas" target="_blank" rel="noopener">GitHub</a><a class="btn alt" href="https://youtu.be/Ggig3vNW-2o" target="_blank" rel="noopener">Demo video</a></div></article>
+    <article class="sticky" style="background:var(--yel);--r:2deg"><h3>Pinpoint</h3><p>A fun quiz website about our planet. Still in progress.</p>
+      <div class="links"><a class="btn" href="https://github.com/rohitkumawat-dev/PinPoint" target="_blank" rel="noopener">GitHub</a></div></article>
+    <article class="sticky" style="background:var(--sand);--r:-1.5deg"><h3>Figma</h3>
+      <img src="figma.png" alt="Figma logo" style="width:100%;aspect-ratio:16/9;object-fit:contain;background:#1e1e1e;border:2px solid var(--ink)">
+      <p>UI/UX design work across three Figma projects.</p>
+      <div class="links"><button class="btn" id="figmaOpen" type="button">View my work</button></div></article>
+  </div>
+</section>
+</main>
+ 
+<dialog id="figma"><div class="cn"><i class="tape"></i>
+  <span class="hand">my figma files</span>
+  <h2>Pick a project</h2>
+  <a class="row" href="https://www.figma.com/design/1I2SMxivX8ncdLlreWxbQi/HawkinsMart.?t=1sM3qI1D5R9CJkUM-1" target="_blank" rel="noopener"><span class="mono">Project 01</span>Stranger Things</a>
+  <a class="row" href="https://www.figma.com/design/DPzpRl8gysCCg6xODEg6t0/juicewrld?node-id=0-1&amp;t=1sM3qI1D5R9CJkUM-1" target="_blank" rel="noopener"><span class="mono">Project 02</span>Juicewrld</a>
+  <a class="row" href="https://www.figma.com/design/JoekDmZWq9uAWZ02fPAdXF/Travel-App-UI?t=1sM3qI1D5R9CJkUM-1" target="_blank" rel="noopener"><span class="mono">Project 03</span>Travel &amp; Enjoy</a>
+  <button class="btn" id="figmaClose" type="button">Close</button>
+</div></dialog>
+<dialog id="contact"><div class="cn"><i class="tape"></i>
+  <span class="hand">say hi</span>
+  <h2>Contact me</h2>
+  <a class="row" href="mailto:rohit24extc@student.mes.ac.in"><span class="mono">Email</span>rohit24extc@student.mes.ac.in</a>
+  <a class="row" href="tel:+918104554029"><span class="mono">Mobile</span>8104554029</a>
+  <button class="btn" id="close">Close</button>
+</div></dialog>
+<script>
+const btns=document.querySelectorAll('.tabs button'),pages=document.querySelectorAll('.page');
+function go(id){
+  if(!document.getElementById(id))id='home';
+  pages.forEach(p=>p.classList.toggle('on',p.id===id));
+  btns.forEach(b=>b.classList.toggle('on',b.dataset.go===id));
+  scrollTo(0,0);
+}
+btns.forEach(b=>b.addEventListener('click',()=>{location.hash=b.dataset.go}));
+addEventListener('hashchange',()=>go(location.hash.slice(1)));
+go(location.hash.slice(1)||'home');
+const lines=['I build web apps that feel good to use','Turning ideas into clean, working code','Design-minded developer, detail obsessed','Shipping real projects, one commit at a time'];
+const tEl=document.getElementById('type');
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){tEl.textContent=lines[0]}
+else{let li=0,ci=0,del=false;
+(function tick(){
+  const t=lines[li];
+  ci+=del?-1:1;tEl.textContent=t.slice(0,ci);
+  let wait=del?28:55;
+  if(!del&&ci===t.length){del=true;wait=1800}
+  else if(del&&ci===0){del=false;li=(li+1)%lines.length;wait=350}
+  setTimeout(tick,wait);
+})();}
+const d=document.getElementById('contact');
+document.querySelectorAll('[data-contact]').forEach(b=>b.addEventListener('click',()=>d.showModal()));
+document.getElementById('close').addEventListener('click',()=>d.close());
+d.addEventListener('click',e=>{if(e.target===d)d.close()});
+const fg=document.getElementById('figma');
+document.getElementById('figmaOpen').addEventListener('click',()=>fg.showModal());
+document.getElementById('figmaClose').addEventListener('click',()=>fg.close());
+fg.addEventListener('click',e=>{if(e.target===fg)fg.close()});
+</script>
+</body>
+</html>
